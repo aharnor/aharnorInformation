@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+==============================================================================
+Linux Dev Server Troubleshooting Script
+==============================================================================
+If your 'npm run dev' is hanging, run these commands to clear the block.
+
+echo "1. Killing any stuck background Node.js processes..."
+killall -9 node 2>/dev/null || true
+
+echo "2. Releasing common development ports (3000, 5173, 8080)..."
+fuser -k 3000/tcp 2>/dev/null || true
+fuser -k 5173/tcp 2>/dev/null || true
+fuser -k 8080/tcp 2>/dev/null || true
+
+echo "3. Clearing common bundler caches..."
+If using Next.js:
+if [ -d ".next" ]; then
+    echo "Detected Next.js. Removing .next cache directory..."
+    rm -rf .next
+fi
+
+If using Vite:
+You can run: npm run dev -- --force
+
+echo "Done! You can now try running 'npm run dev' again."

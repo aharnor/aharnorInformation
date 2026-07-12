@@ -1,0 +1,32 @@
+#  Command to Run ../TEST/api_aws_list_API_routes  > Working_config_andrew_08Jul2026_listAPIroutest
+#  aws apigatewayv2 get-routes --api-id 6pc8dpxa07 --region eu-north-1 --output table
+
+#  Note : 6pc8dpxa07 is the ID shown against athe API at the top level if you list the API in the search bar
+
+-------------------------------------------------
+|                   GetRoutes                   |
++-----------------------------------------------+
+||                    Items                    ||
+|+--------------------+------------------------+|
+||  ApiKeyRequired    |  False                 ||
+||  AuthorizationType |  NONE                  ||
+||  RouteId           |  52cwtwm               ||
+||  RouteKey          |  POST /{proxy+}        ||
+||  Target            |  integrations/6x82uiv  ||
+|+--------------------+------------------------+|
+||                    Items                    ||
+|+--------------------+------------------------+|
+||  ApiKeyRequired    |  False                 ||
+||  AuthorizationType |  NONE                  ||
+||  RouteId           |  syh32ns               ||
+||  RouteKey          |  POST /chat            ||
+||  Target            |  integrations/rs3p6l9  ||
+|+--------------------+------------------------+|
+||                    Items                    ||
+|+--------------------+------------------------+|
+||  ApiKeyRequired    |  False                 ||
+||  AuthorizationType |  NONE                  ||
+||  RouteId           |  udn0j0l               ||
+||  RouteKey          |  GET /                 ||
+||  Target            |  integrations/gg87emp  ||
+|+--------------------+------------------------+|

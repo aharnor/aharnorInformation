@@ -1,0 +1,13 @@
+To bypass Turbopack, run this command directly in your terminal:
+
+npx next dev
+
+(This runs Next.js using the standard Webpack compiler instead of Turbopack).
+
+If you want to fix your 'npm run dev' command permanently:
+Open 'package.json' in your frontend folder.
+Look for the "scripts" section.
+Change:
+   "dev": "next dev --turbo"
+   to:
+   "dev": "next dev"

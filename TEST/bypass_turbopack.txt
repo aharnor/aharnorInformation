@@ -1,0 +1,5 @@
+Clear the Turbopack and Next.js build caches
+rm -rf .next node_modules/.cache
+
+Run Next.js using the stable Webpack compiler (bypassing Turbopack)
+npm run dev -- --no-turbo

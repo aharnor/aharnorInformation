@@ -1,0 +1,38 @@
+
+# Ed - Orig # Configure CORS
+# Ed - Orig origins = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
+# Ed - Orig app.add_middleware(
+# Ed - Orig     CORSMiddleware,
+# Ed - Orig     allow_origins=origins,
+# Ed - Orig     allow_credentials=True,
+# Ed - Orig     allow_methods=["*"],
+# Ed - Orig     allow_headers=["*"],
+# Ed - Orig )
+
+# Configure CORS
+origins = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+#--- >>> Start changes by me for krater 
+# 1. Retrieve the Krater API key from Vercel's environment variables.
+### ORIG # Initialize OpenAI client
+### ORIG client = OpenAI()
+api_key = os.getenv("KRATER_API_KEY")
+#--- <<< End changes by me for krater 
+#--- >>> Start changes by me for krater 
+### client = OpenAI()#######################################
+client = OpenAI(
+    api_key=api_key,
+    base_url="https://api.krater.ai/v1"
+)
+#--- <<< End changes by me for krater 

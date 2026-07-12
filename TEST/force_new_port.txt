@@ -1,0 +1,7 @@
+Force Next.js to run on an alternative port (3001) and bypass any port 3000 conflicts
+
+Run this command in your terminal:
+PORT=3001 npm run dev
+
+Once it says "Ready", open your browser and navigate directly to:
+http://localhost:3001

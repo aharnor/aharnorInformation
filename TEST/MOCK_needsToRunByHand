@@ -1,0 +1,15 @@
+
+# 1. Create the Mock Integration
+integration_id=$(aws apigatewayv2 create-integration \
+  --api-id 6pc8dpxa07 \
+  --integration-type MOCK \
+  --region eu-north-1 \
+  --query 'IntegrationId' \
+  --output text)
+
+# 2. Attach it to your OPTIONS route
+aws apigatewayv2 update-route \
+  --api-id 6pc8dpxa07 \
+  --route-id ih0zr4f \
+  --target "integrations/$integration_id" \
+  --region eu-north-1

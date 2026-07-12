@@ -1,0 +1,10 @@
+aws apigatewayv2 update-api \
+  --api-id 6pc8dpxa07 \
+  --region eu-north-1 \
+  --cors-configuration '{
+    "AllowCredentials": true,
+    "AllowHeaders": ["content-type", "authorization", "x-requested-with"],
+    "AllowMethods": ["GET", "POST", "OPTIONS"],
+    "AllowOrigins": ["http://twin-frontend-930458520501.s3-website-eu-north-1.amazonaws.com"],
+    "MaxAge": 300
+  }'

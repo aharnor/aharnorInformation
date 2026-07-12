@@ -1,0 +1,27 @@
+AWS API Gateway & CORS: What Actually Happened
+
+This is a simple, high-level summary of how your API and backend are set up, why it was failing, and how we fixed it. Keep this as a reference for future projects.
+
+The "Preflight" Check (The Security Ping)
+• What it is: When a web browser (like Firefox or Chrome) tries to send data to an API on a different domain, it doesn't just send the data immediately. 
+ The Ping: First, the browser sends a silent "security ping" called an OPTIONS request (the preflight check). It asks the API: "Are you allowed to talk to my frontend, and what headers/methods will you accept?"*
+• The Rule: If this security ping doesn't get a perfect, approved answer back, the browser blocks the actual message from ever being sent.
+
+Why It Failed Initially
+We had two systems trying to handle CORS (Cross-Origin Resource Sharing) at the same time, which caused a conflict:
+The Wildcard Route (ANY): API Gateway was configured to forward every single request (including the browser's security pings) directly to your Python backend (server.py).
+The Backend Silence: Because server.py wasn't written to expect or answer those security pings, it ignored them. The browser saw no response to its ping and blocked the connection.
+The Wildcard Header Issue: We had headers set to * (allow everything). Modern browsers are strict and reject wildcards for security; they demand explicit names.
+
+How We Fixed It (The Best Practice Setup)
+We offloaded 100% of the security work to AWS API Gateway so your Python code doesn't have to worry about it:
+
+Removed ANY and OPTIONS routes: We stopped forwarding the security pings to your Python code.
+Let API Gateway Answer the Ping: Now, when the browser sends its preflight ping, API Gateway intercepts it immediately and replies with a green light (204 No Content + approved headers). Your Python code is never bothered.
+Explicit Headers: We changed the allowed headers from * to an explicit list (content-type, authorization, x-requested-with) which browsers accept.
+Clean Backend: Your server.py now has zero CORS code. It only listens for the actual POST messages, processes them, and returns standard JSON. API Gateway automatically attaches the required security headers to the response on the way back to the browser.
+
+Key Takeaways for Your Level
+• Let the Gateway do the heavy lifting: It is always cleaner to configure CORS in API Gateway rather than writing complex CORS handling code in Python.
+• Browsers cache failures aggressively: If you change settings and it still fails, always test in an Incognito/Private window first. Browsers love to remember old CORS failures even after you fix them.
+• CORS is a browser-only security feature: Tools like curl or Postman bypass these checks entirely. If a request works in curl but fails in the browser, it is almost always a CORS/Preflight issue.

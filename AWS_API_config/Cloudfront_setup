@@ -1,0 +1,23 @@
+Collect the static S3 wepbsite name from the S3 bucket (care with leading http and trailing slash)
+http://twin-frontend-930458520501.s3-website-us-east-1.amazonaws.com/
+
+Note: Cloudfront is global - so you can't set the region
+
+Go to CloudFront and give distribution name 'twin-distribution'  -> NEXT
+
+because this is a special kind of static site we don't choose Origin Type S3  but we choose Origin Type 'other'
+
+Specify the 'custom origin' name twin-frontend-930458520501.s3-website-us-east-1.amazonaws.com 
+(remove the leading httpxx;//  and any trailing slash) 
+
+Customise origin seting to be HTTP only - important !!!!
+
+Note you don't normally need the 'web application firewall '   - create   (5-10 mins)
+
+
+We don't need to do anything with the lambda ORIGIN env var since we removed CORS from server.py
+
+E2ODXFUOXP609V  -> d3g68a84nzefje.cloudfront.net - > works 
+
+
+Note --- the S3 bucket is in us-east-1  - why ! 

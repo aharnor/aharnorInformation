@@ -1,0 +1,40 @@
+Next.js Version Alignment & Reinstall Guide
+==========================================
+
+Follow these steps to resolve the version mismatch deadlock between Next.js and React.
+
+STEP 1: Update package.json
+
+Open your package.json file in your editor and update the dependencies block to use compatible, modern versions:
+
+"dependencies": {
+  "next": "^15.1.0",
+  "react": "^19.0.0",
+  "react-dom": "^19.0.0"
+}
+
+If you have "@types/react" or "@types/react-dom" in your "devDependencies", update them as well:
+
+"devDependencies": {
+  "@types/react": "^19.0.0",
+  "@types/react-dom": "^19.0.0"
+}
+
+STEP 2: Clean the broken installation
+
+Run these commands in your terminal to wipe out the mismatched files and clear the cache:
+
+rm -rf node_modules .next package-lock.json
+npm cache clean --force
+
+STEP 3: Install the correct versions
+
+Run a clean install:
+
+npm install --legacy-peer-deps
+
+STEP 4: Start the server
+
+Start your development server on port 3002:
+
+PORT=3002 npm run dev

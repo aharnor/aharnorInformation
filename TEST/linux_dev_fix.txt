@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+#==============================================================================
+#Linux Development Server Deep Diagnostic & Repair Script
+#==============================================================================
+
+echo "=== Starting Linux Dev Server Diagnostics ==="
+
+#Check and Kill processes on common ports (3000, 5173, 8080, 8000)
+echo "Checking for processes holding local ports..."
+for port in 3000 5173 8080 8000; do
+    PID=$(lsof -t -i:$port 2>/dev/null || true)
+    if [ -not -z "$PID" ]; then
+        echo "Found process $PID holding port $port. Force killing it..."
+        kill -9 $PID 2>/dev/null || true
+    fi
+done
+
+#Fix Linux System File Watcher Limits (Inotify)
+#Vite/Next.js often hang silently on Linux when the system runs out of file watchers.
+echo "Checking system file watcher limits..."
+CURRENT_WATCHES=$(cat /proc/sys/fs/inotify/max_user_watches)
+echo "Current max_user_watches: $CURRENT_WATCHES"
+
+if [ "$CURRENT_WATCHES" -lt 524288 ]; then
+    echo "Increasing file watcher limits (requires sudo)..."
+    echo "fs.inotify.max_user_watches=524288" | sudo tee -a /etc/sysctl.conf 2>/dev/null || true
+    sudo sysctl -p 2>/dev/null || true
+    echo "File watcher limit increased."
+fi
+
+#Clear local bundler and package caches
+echo "Clearing local caches..."
+rm -rf .next .vite node_modules/.cache 2>/dev/null || true
+
+#Run with Debug Logging
+#This forces the server to print exactly where it is hanging instead of staying silent.
+echo "=============================================================================="
+echo "Diagnostics complete. Try running your server with debug flags now:"
+echo "DEBUG=vite:* npm run dev   (if using Vite)"
+echo "DEBUG=* npm run dev        (if using Next.js/Webpack)"
+echo "=============================================================================="

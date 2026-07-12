@@ -1,0 +1,21 @@
+{
+  "full_name": "Andrew Harnor",
+  "name": "Andrew",
+  "current_role": "Your Current Role",
+  "location": "Linux Engineer",
+  "email": "asharnor@hotmail.com",
+  "linkedin": "linkedin.com/in/yourprofile",
+  "specialties": [
+    "linux",
+    "Shell Scripting, Perl Scripting, Various other languages",
+    "Automation, ansible, AI, process improvement"
+  ],
+  "years_experience": 40,
+  "education": [
+    {
+      "degree": "Mechanical Engineering",
+      "institution": "Brunel University (London)",
+      "year": "1982"
+    }
+  ]
+}

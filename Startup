@@ -1,0 +1,14 @@
+( cd ~/cursor_projects/twin/backend ; python3 -m py_compile server.py )
+( cd ~/cursor_projects/twin/backend ; uv run uvicorn server:app --reload ) &
+( cd ~/cursor_projects/twin/frontend ; npm run dev ) &    # To dploy to dev
+( cd ~/cursor_projects/twin/frontend ; npm run build ) &  # To create out dir
+libreoffice --headless --convert-to pdf <file>.docx
+
+( cd ~/cursor_projects/twin/backend ; sudo /home/andrew/.local/bin/uv run deploy.py )
+
+
+
+
+ aws configure  (after downloading key for aiengineer usr tget aws to work  ) 
+( cd ~/cursor_projects/twin/frontend/ ; aws s3 sync out/ s3://twin-frontend-930458520501/  --delete )
+

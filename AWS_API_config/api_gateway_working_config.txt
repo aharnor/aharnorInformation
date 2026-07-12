@@ -1,0 +1,49 @@
+{
+  "Comment": "This is the exact working configuration of your AWS HTTP API Gateway (6pc8dpxa07) in eu-north-1 that resolved the CORS preflight issues.",
+  "ApiGateway": {
+    "ApiId": "6pc8dpxa07",
+    "Name": "twin-api",
+    "ProtocolType": "HTTP",
+    "CorsConfiguration": {
+      "AllowHeaders": [
+        "authorization",
+        "content-type",
+        "x-requested-with"
+      ],
+      "AllowMethods": [
+        "GET",
+        "OPTIONS",
+        "POST"
+      ],
+      "AllowOrigins": [
+        "*"
+      ],
+      "MaxAge": 300
+    }
+  },
+  "Routes": [
+    {
+      "RouteId": "syh32ns",
+      "RouteKey": "POST /chat",
+      "Target": "integrations/rs3p6l9",
+      "AuthorizationType": "NONE"
+    },
+    {
+      "RouteId": "udn0j0l",
+      "RouteKey": "GET /",
+      "Target": "integrations/gg87emp",
+      "AuthorizationType": "NONE"
+    },
+    {
+      "RouteId": "52cwtwm",
+      "RouteKey": "POST /{proxy+}",
+      "Target": "integrations/6x82uiv",
+      "AuthorizationType": "NONE"
+    }
+  ],
+  "KeyDifferencesFromEdsSetup": {
+    "CORS_Handling": "Handled entirely by API Gateway (built-in CORS engine) instead of Lambda code.",
+    "Route_Changes": "Removed the 'ANY /{proxy+}' and 'OPTIONS /{proxy+}' routes. Replaced with explicit 'POST /{proxy+}' and 'POST /chat' routes so API Gateway automatically intercepts preflight OPTIONS requests.",
+    "CORS_Headers": "Explicitly defined allowed headers ('content-type', 'authorization', 'x-requested-with') instead of using wildcards ('*') which modern browsers reject."
+  }
+}

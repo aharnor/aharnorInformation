@@ -1,0 +1,12 @@
+AWS CLI Configuration Command
+
+To configure your AWS CLI credentials on Ubuntu, run this exact command in your terminal:
+
+aws configure
+
+What to enter when prompted:
+
+AWS Access Key ID [None]: (Paste your Access Key ID here and press Enter)
+AWS Secret Access Key [None]: (Paste your Secret Access Key here and press Enter)
+Default region name [None]: eu-north-1
+Default output format [None]: json

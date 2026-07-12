@@ -1,0 +1,13 @@
+<h1>AWS Lambda Dependency Installation Commands</h1><p>When deploying Python applications with binary dependencies (like Pydantic, FastAPI, or OpenAI) to AWS Lambda, you must download packages compiled for the Amazon Linux environment rather than your local operating system.</p><p>Below are the exact commands to download the correct Linux-compatible binaries.</p><hr><h2>Option A: For x86_64 Architecture (AWS Lambda Default)</h2><p>If your Lambda function is configured for the default <strong>x86_64</strong> architecture, run this command in your terminal from your backend directory:</p><pre class="bg-muted rounded-md p-4 font-mono text-sm overflow-x-auto"><code class="language-bash">pip install \
+  --platform manylinux2014_x86_64 \
+  --target=./my-lambda-package \
+  --implementation cp \
+  --python-version 3.12 \
+  --only-binary=:all: \
+  -r requirements.txt</code></pre><hr><h2>Option B: For arm64 Architecture (Apple Silicon / Graviton)</h2><p>If you configured your Lambda function to use the <strong>arm64</strong> (Graviton2) architecture, run this command instead:</p><pre class="bg-muted rounded-md p-4 font-mono text-sm overflow-x-auto"><code class="language-bash">pip install \
+  --platform manylinux2014_aarch64 \
+  --target=./my-lambda-package \
+  --implementation cp \
+  --python-version 3.12 \
+  --only-binary=:all: \
+  -r requirements.txt</code></pre><hr><h2>How to Change the Python Runtime in AWS Lambda</h2><p>AWS Lambda does not automatically detect the Python version from your zip file. You must set it manually in the AWS Console:</p><ol class="tight" data-tight="true"><li><p>Open the <strong>AWS Lambda Console</strong> and click on your function (<code>twin-api</code>).</p></li><li><p>Scroll down to the <strong>Runtime settings</strong> section (located under the main code editor tab).</p></li><li><p>Click <strong>Edit</strong> on the right side.</p></li><li><p>Change the <strong>Runtime</strong> dropdown to <strong>Python 3.12</strong>.</p></li><li><p>Click <strong>Save</strong>.</p></li></ol>

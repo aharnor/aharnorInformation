@@ -1,0 +1,5 @@
+
+aws apigatewayv2 delete-route \
+  --api-id 6pc8dpxa07 \
+  --route-id 8eim4ul \
+  --region eu-north-1

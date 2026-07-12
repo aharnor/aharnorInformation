@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+==============================================================================
+Next.js Clean Reinstall Script (Keeps Your Code)
+==============================================================================
+
+echo "=== Starting Next.js Clean Reinstall ==="
+
+Kill any lingering Node/Next.js processes
+echo "Killing lingering Node processes..."
+killall -9 node 2>/dev/null || true
+fuser -k 3000/tcp 2>/dev/null || true
+fuser -k 3001/tcp 2>/dev/null || true
+fuser -k 3002/tcp 2>/dev/null || true
+
+Remove build caches and package locks
+echo "Removing build caches and lockfiles..."
+rm -rf .next
+rm -rf node_modules/.cache
+rm -rf node_modules
+rm -f package-lock.json
+rm -f yarn.lock
+rm -f pnpm-lock.yaml
+
+Clear npm cache
+echo "Clearing npm cache..."
+npm cache clean --force
+
+Reinstall dependencies
+echo "Reinstalling dependencies..."
+npm install
+
+echo "=== Clean Reinstall Complete! ==="
+echo "You can now run: npm run dev"

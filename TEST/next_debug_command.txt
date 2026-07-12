@@ -1,0 +1,6 @@
+Run this exact command in your terminal to start Next.js with full debug logging:
+
+DEBUG=next:* npm run dev
+
+This will print detailed logs of everything Next.js is doing behind the scenes,
+showing you exactly which file or step it gets stuck on.
