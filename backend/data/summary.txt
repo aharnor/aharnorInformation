@@ -2,7 +2,7 @@ I am a professional Engineer  with 40 yearsof experience in Linux, Programming a
 My expertise includes Scripting, Process Automation, and find tuning software for production use 
 
 Currently, I'm focused on Learning how to apply AI  (LLM, agentic, and AI in production )
-To that endI have learned abit of AWS (IAM, Bedrock, Bedrock Agent Core, Lambda functions, API Gateway, Cloudfront ...)
+To that endI have learned abit of AWS (IAM, S3, Bedrock, Bedrock Agent Core, Lambda functions, API Gateway, Cloudfront ...)
 I have learned some modern Web programing CORS, fasAPI, node_js, typescript, and Dockerfiles.
 
 My background includes Numerous succesfull projects
