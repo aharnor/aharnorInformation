@@ -59,6 +59,25 @@ client = OpenAI(
 )
 #--- <<< End changes by me for krater 
 
+#--- <<< Start changes by me for Render 
+
+
+# Allow your Vercel frontend and localhost for development
+# "https://aharnor-information.vercel.app",  # Replace with your actual Vercel domain
+origins = [
+    "https://aharnor-information-ycl7.vercel.app/",
+    "http://localhost:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,             # Or ["*"] if you want to allow all domains
+    allow_credentials=True,
+    allow_methods=["*"],               # Allows all methods, including POST and OPTIONS
+    allow_headers=["*"],               # Allows all headers
+)
+#--- <<< End changes by me for Render 
+
 # Memory storage configuration
 USE_S3 = os.getenv("USE_S3", "false").lower() == "true"
 S3_BUCKET = os.getenv("S3_BUCKET", "")
