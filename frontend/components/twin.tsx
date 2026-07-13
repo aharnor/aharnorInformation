@@ -44,7 +44,7 @@ export default function Twin() {
          // const response = await fetch('http://localhost:8000/chat', {
          // const response = await fetch('https://6pc8dpxa07.execute-api.eu-north-1.amazonaws.com/chat', {
          // const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/chat`, {
-            const response = await fetch('https://aharnorinformation.onrender.com', {
+            const response = await fetch('https://aharnorinformation.onrender.com/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
