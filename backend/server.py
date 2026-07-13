@@ -53,7 +53,7 @@ app = FastAPI()
 # Allow your Vercel frontend and localhost for development
 # "https://aharnor-information.vercel.app",  # Replace with your actual Vercel domain
 origins = [
-    "https://aharnor-information-ycl7.vercel.app/",
+    "https://aharnor-information-ycl7.vercel.app",
     "http://localhost:3000",
 ]
 # origins = [ "*" ]  # Debug - Any origin 
