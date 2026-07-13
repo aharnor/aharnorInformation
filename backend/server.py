@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+arom fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from openai import OpenAI
@@ -52,11 +52,11 @@ app = FastAPI()
 #--- >>> Start changes by me for Render 
 # Allow your Vercel frontend and localhost for development
 # "https://aharnor-information.vercel.app",  # Replace with your actual Vercel domain
-#origins = [
-#    "https://aharnor-information-ycl7.vercel.app/",
-#    "http://localhost:3000",
-#]
-origins = [ "*" ]
+origins = [
+    "https://aharnor-information-ycl7.vercel.app/",
+    "http://localhost:3000",
+]
+# origins = [ "*" ]  # Debug - Any origin 
 
 app.add_middleware(
     CORSMiddleware,
@@ -69,15 +69,15 @@ app.add_middleware(
 
 #--- >>> Start changes by me for krater 
 # 1. Retrieve the Krater API key from Vercel's environment variables.
-#api_key = os.getenv("KRATER_API_KEY")
-api_key = os.getenv("OPENAI_API_KEY")
+api_key = os.getenv("KRATER_API_KEY")
+#api_key = os.getenv("OPENAI_API_KEY")
 #--- <<< End changes by me for krater 
 #--- >>> Start changes by me for krater 
 ### client = OpenAI()#######################################
 client = OpenAI(
-    api_key=api_key 
+    api_key=api_key,
+    base_url="https://api.krater.ai/v1",
 )
-#   base_url="https://api.krater.ai/v1"
 
 # Memory storage configuration
 USE_S3 = os.getenv("USE_S3", "false").lower() == "true"
