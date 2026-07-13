@@ -69,14 +69,15 @@ app.add_middleware(
 
 #--- >>> Start changes by me for krater 
 # 1. Retrieve the Krater API key from Vercel's environment variables.
-api_key = os.getenv("KRATER_API_KEY")
+#api_key = os.getenv("KRATER_API_KEY")
+api_key = os.getenv("OPENAI_API_KEY")
 #--- <<< End changes by me for krater 
 #--- >>> Start changes by me for krater 
 ### client = OpenAI()#######################################
 client = OpenAI(
-    api_key=api_key,
-    base_url="https://api.krater.ai/v1"
+    api_key=api_key 
 )
+#   base_url="https://api.krater.ai/v1"
 
 # Memory storage configuration
 USE_S3 = os.getenv("USE_S3", "false").lower() == "true"
