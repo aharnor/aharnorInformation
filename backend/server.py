@@ -47,21 +47,9 @@ app = FastAPI()
 # For Krater     allow_headers=["*"],
 # For Krater )
 
-#--- >>> Start changes by me for krater 
-# 1. Retrieve the Krater API key from Vercel's environment variables.
-api_key = os.getenv("KRATER_API_KEY")
-#--- <<< End changes by me for krater 
-#--- >>> Start changes by me for krater 
-### client = OpenAI()#######################################
-client = OpenAI(
-    api_key=api_key,
-    base_url="https://api.krater.ai/v1"
-)
 #--- <<< End changes by me for krater 
 
-#--- <<< Start changes by me for Render 
-
-
+#--- >>> Start changes by me for Render 
 # Allow your Vercel frontend and localhost for development
 # "https://aharnor-information.vercel.app",  # Replace with your actual Vercel domain
 origins = [
@@ -77,6 +65,17 @@ app.add_middleware(
     allow_headers=["*"],               # Allows all headers
 )
 #--- <<< End changes by me for Render 
+
+#--- >>> Start changes by me for krater 
+# 1. Retrieve the Krater API key from Vercel's environment variables.
+api_key = os.getenv("KRATER_API_KEY")
+#--- <<< End changes by me for krater 
+#--- >>> Start changes by me for krater 
+### client = OpenAI()#######################################
+client = OpenAI(
+    api_key=api_key,
+    base_url="https://api.krater.ai/v1"
+)
 
 # Memory storage configuration
 USE_S3 = os.getenv("USE_S3", "false").lower() == "true"
