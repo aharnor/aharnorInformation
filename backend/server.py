@@ -52,10 +52,11 @@ app = FastAPI()
 #--- >>> Start changes by me for Render 
 # Allow your Vercel frontend and localhost for development
 # "https://aharnor-information.vercel.app",  # Replace with your actual Vercel domain
-origins = [
-    "https://aharnor-information-ycl7.vercel.app/",
-    "http://localhost:3000",
-]
+#origins = [
+#    "https://aharnor-information-ycl7.vercel.app/",
+#    "http://localhost:3000",
+#]
+origins = [ "*" ]
 
 app.add_middleware(
     CORSMiddleware,
