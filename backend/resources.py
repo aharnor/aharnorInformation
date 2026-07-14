@@ -5,7 +5,7 @@ import json
 # Read CV PDF
 try:
     reader = PdfReader("./data/myCV.pdf")
-    linkedin = ""
+    myCV = ""
     for page in reader.pages:
         text = page.extract_text()
         if text:
