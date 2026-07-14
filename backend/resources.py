@@ -1,4 +1,4 @@
-## import glob
+import glob
 from pypdf import PdfReader  # or 'from PyPDF2 import PdfReader' depending on your library
 import json
 
@@ -24,25 +24,25 @@ try:
 except FileNotFoundError:
     linkedin = "LinkedIn profile not available"
 
-## # Read All certificate files
-## myCertificates = ""
-## # Find all files matching the pattern in the directory
-## cert_files = glob.glob("./data/certif*.pdf")
-## 
-## if cert_files:
-##     for file_path in cert_files:
-##         try:
-##             reader = PdfReader(file_path)
-##             for page in reader.pages:
-##                 text = page.extract_text()
-##                 if text:
-##                     # Append text from each page of each certificate
-##                     myCertificates += text + "\n"  # Added a newline to separate certificates cleanly
-##         except Exception as e:
-##             # If one specific file fails to read, we log it and continue with the others
-##             print(f"Error reading {file_path}: {e}")
-## else:
-##     myCertificates = "Certificate files not available"
+# Read All certificate files
+myCertificates = ""
+# Find all files matching the pattern in the directory
+cert_files = glob.glob("./data/certif*.pdf")
+
+if cert_files:
+    for file_path in cert_files:
+        try:
+            reader = PdfReader(file_path)
+            for page in reader.pages:
+                text = page.extract_text()
+                if text:
+                    # Append text from each page of each certificate
+                    myCertificates += text + "\n"  # Added a newline to separate certificates cleanly
+        except Exception as e:
+            # If one specific file fails to read, we log it and continue with the others
+            print(f"Error reading {file_path}: {e}")
+else:
+    myCertificates = "Certificate files not available"
 
 # Read other data files
 with open("./data/summary.txt", "r", encoding="utf-8") as f:
