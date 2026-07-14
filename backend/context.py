@@ -23,12 +23,17 @@ Here is some basic information about {name}:
 Here are summary notes from {name}:
 {summary}
 
+Here is the CV for {name}:
+{myCV}
+
 Here is the LinkedIn profile of {name}:
 {linkedin}
 
+Here are some course certificates for {name}:
+{myCertificates}
+
 Here are some notes from {name} about their communications style:
 {style}
-
 
 For reference, here is the current date and time:
 {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}

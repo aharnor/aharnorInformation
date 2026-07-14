@@ -1,17 +1,6 @@
+
 import glob
 from pypdf import PdfReader  # or 'from PyPDF2 import PdfReader' depending on your library
-import json
-
-# Read CV PDF
-try:
-    reader = PdfReader("./data/myCV.pdf")
-    linkedin = ""
-    for page in reader.pages:
-        text = page.extract_text()
-        if text:
-            myCV += text
-except FileNotFoundError:
-    linkedin = "myCV.pdf not available"
 
 # Read LinkedIn PDF
 try:
@@ -43,13 +32,3 @@ if cert_files:
             print(f"Error reading {file_path}: {e}")
 else:
     myCertificates = "Certificate files not available"
-
-# Read other data files
-with open("./data/summary.txt", "r", encoding="utf-8") as f:
-    summary = f.read()
-
-with open("./data/style.txt", "r", encoding="utf-8") as f:
-    style = f.read()
-
-with open("./data/facts.json", "r", encoding="utf-8") as f:
-    facts = json.load(f)
