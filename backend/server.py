@@ -59,9 +59,9 @@ origins = [
 # origins = [ "*" ]  # Debug - Any origin 
 
 app.add_middleware(
+#   allow_origins=[ "*" ],             # Or ["*"] if you want to allow all domains
     CORSMiddleware,
-#   allow_origins=origins,             # Or ["*"] if you want to allow all domains
-    allow_origins=[ "*" ],             # Or ["*"] if you want to allow all domains
+    allow_origins=origins,             # Or ["*"] if you want to allow all domains
     allow_credentials=True,
     allow_methods=["*"],               # Allows all methods, including POST and OPTIONS
     allow_headers=["*"],               # Allows all headers
@@ -70,14 +70,14 @@ app.add_middleware(
 
 #--- >>> Start changes by me for krater 
 # 1. Retrieve the Krater API key from Vercel's environment variables.
-api_key = os.getenv("KRATER_API_KEY")
-#api_key = os.getenv("OPENAI_API_KEY")
+#api_key = os.getenv("KRATER_API_KEY")
+api_key = os.getenv("OPENAI_API_KEY")
 #--- <<< End changes by me for krater 
 #--- >>> Start changes by me for krater 
 ### client = OpenAI()#######################################
+#   base_url="https://api.krater.ai/v1",
 client = OpenAI(
     api_key=api_key,
-    base_url="https://api.krater.ai/v1",
 )
 
 # Memory storage configuration

@@ -1,4 +1,4 @@
-from resources import myCV myCertificates linkedin, summary, facts, style
+from resources import myCV, myCertificates, linkedin, summary, facts, style
 from datetime import datetime
 
 
