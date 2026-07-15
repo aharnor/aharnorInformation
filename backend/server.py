@@ -1,3 +1,7 @@
+import sys
+import shutil
+import subprocess
+import platform
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -148,12 +152,29 @@ def save_conversation(session_id: str, messages: List[Dict]):
             json.dump(messages, f, indent=2)
 
 
+#######################################################################################
+def get_node_version() -> str:
+    """Dynamically retrieves the Node.js version if installed on the system."""
+    if not shutil.which("node"):
+        return "Not Installed"
+    try:
+        # Run 'node -v' and decode the output (e.g., "v18.16.0\n")
+        version = subprocess.check_output(["node", "-v"], stderr=subprocess.DEVNULL)
+        return version.decode("utf-8").strip()
+    except Exception:
+        return "Unknown Error"
+#######################################################################################
 @app.get("/")
 async def root():
     return {
-        "message": "AI Digital Twin API",
+        "message": "Andrew Harnor - Career Information Helper - Website Back-End",
+        "frontend_url": "https://aharnor-information.vercel.app",
         "memory_enabled": True,
         "storage": "S3" if USE_S3 else "local",
+        "Next.js Router": "App",
+        "python_version": sys.version.split()[0],
+        "node_version": get_node_version(),
+        "os_platform": platform.system(),
     }
 
 

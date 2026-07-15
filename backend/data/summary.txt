@@ -1,8 +1,12 @@
 I am a professional Engineer  with 40 yearsof experience in Linux, Programming and Engineering. 
-My expertise includes Scripting, Process Automation, and find tuning software for production use 
+My expertise includes Scripting, Process Automation, and fine tuning software for production use 
 
 Currently, I'm focused on Learning how to apply AI  (LLM, agentic, and AI in production )
-To that endI have learned a bit of AWS (IAM, S3, Bedrock, Bedrock Agent Core, Lambda functions, API Gateway, Cloudfront ... and the now defunct appRunner )
-I have learned some modern Web programing CORS, fasAPI, node_js, typescript, and Dockerfiles. .. and put on vercel and render
+Towards that agentic aim I have learned some modern programing techniques, a bit of AWS (IAM, S3, Bedrock, Bedrock Agent Core, Lambda functions, API Gateway, Cloudfront ... and the now defunct appRunner )
+ and put appls on vercel (frontend) and render (backend)
 
-My background includes Numerous succesfull projects
+I have recently learned the basics of some modern Web languages, Python, uv,  CORS, fasAPI, node_js, typescript, npm, React, and Dockerfie build of Lambda functions to complete a solid background in Perl cgi
+
+My background includes Numerous succesfull projects, both my own technical developments, but also working as part of team working with end users to bring something into production. 
+
+I don't lead from the front, I generally work behind the scenes, grasping and focusing on the technical details but always with the end goal in sight, working from the bottom up, being open and explaining constraints and implemneting  small improvements that induividualy build to a large contribution to a clear end goal. I influence things at the top level by working from the bottom up. In other words I grasp then end goal as set out, do things towards acheiving it, and as it becomes clear what is acheiveable, and often as a result of that the overal diretiion of the project changes.
