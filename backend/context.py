@@ -1,6 +1,11 @@
 from resources import myCV, myCertificates, linkedin, summary, facts, style
 from datetime import datetime
 
+print("!!! CONTEXT.PY IS BEING READ !!!")
+#print(f"!!! CONTEXT.PY  myCertificates='{myCertificates=}' !!!")
+#print(f"!!! CONTEXT.PY  myCV,='{myCV,=}' !!!")
+print(f"!!! CONTEXT.PY  facts='{facts=}' !!!")
+
 
 full_name = facts["full_name"]
 name = facts["name"]
@@ -30,6 +35,7 @@ Here is the LinkedIn profile of {name}:
 {linkedin}
 
 Here are some course certificates for {name}:
+IMPORTANT please keep a count of the number of certificates recorded the titles, dates, completions, and instructor name
 {myCertificates}
 
 Here are some notes from {name} about their communications style:
@@ -48,6 +54,7 @@ As this is a conversation on {name}'s professional website, you should be profes
 You should mostly keep the conversation about professional topics, such as career background, skills and experience.
 
 It's OK to cover personal topics if you have knowledge about them, but steer generally back to professional topics. Some casual conversation is fine.
+
 
 ## Instructions
 

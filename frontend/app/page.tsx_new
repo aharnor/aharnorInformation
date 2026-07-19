@@ -1,0 +1,108 @@
+"use client";
+
+import { useState, useRef, useEffect } from "react";
+
+interface Message {
+  sender: "user" | "bot" | "error";
+  text: string;
+}
+
+export default function Home() {
+  const [messages, setMessages] = useState<Message[]>([
+    { sender: "bot", text: "Ask me anything about Andrew's qualifications..." }
+  ]);
+  const [input, setInput] = useState("");
+  const chatEndRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll to the bottom of the chat
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  const sendMessage = async () => {
+    const trimmedInput = input.trim();
+    if (!trimmedInput) return;
+
+    // Add user message
+    setMessages((prev) => [...prev, { sender: "user", text: trimmedInput }]);
+    setInput("");
+
+    try {
+      const response = await fetch("http://localhost:8000/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: trimmedInput }),
+      });
+      const data = await response.json();
+
+      // Add bot response
+      setMessages((prev) => [...prev, { sender: "bot", text: data.response }]);
+    } catch (error) {
+      setMessages((prev) => [
+        ...prev,
+        { sender: "error", text: "Error connecting to backend server." }
+      ]);
+    }
+  };
+
+  return (
+    <div className="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col items-center justify-center p-4">
+      <div className="w-full max-w-xl bg-zinc-900 border border-zinc-800 rounded-xl p-6 shadow-xl space-y-6">
+        
+        {/* Header & Status */}
+        <div className="flex items-center justify-between border-b border-zinc-800 pb-4">
+          <div>
+            <h1 className="text-xl font-bold">Andrew's AI Twin</h1>
+            <p className="text-xs text-zinc-400">Trained on CV & Certificates</p>
+          </div>
+          <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-950 border border-zinc-800 text-xs text-emerald-400">
+            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Connected
+          </div>
+        </div>
+
+        {/* Chat Output Area */}
+        <div className="h-64 bg-zinc-950 border border-zinc-800 rounded-lg p-4 overflow-y-auto text-sm space-y-3">
+          {messages.map((msg, idx) => (
+            <div
+              key={idx}
+              className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
+            >
+              <span
+                className={`px-3 py-1.5 rounded-lg inline-block max-w-[85%] ${
+                  msg.sender === "user"
+                    ? "bg-zinc-800 text-zinc-100"
+                    : msg.sender === "error"
+                    ? "text-red-400 text-xs"
+                    : "bg-zinc-900 border border-zinc-800 text-zinc-300"
+                }`}
+              >
+                {msg.text}
+              </span>
+            </div>
+          ))}
+          <div ref={chatEndRef} />
+        </div>
+
+        {/* Input Form */}
+        <div className="flex gap-2">
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+            placeholder="Ask a question..."
+            className="flex-1 bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-zinc-700"
+          />
+          <button
+            onClick={sendMessage}
+            className="bg-zinc-100 text-zinc-950 font-semibold px-4 py-2 rounded-lg text-sm hover:bg-zinc-200 transition-colors"
+          >
+            Send
+          </button>
+        </div>
+
+      </div>
+    </div>
+  );
+}

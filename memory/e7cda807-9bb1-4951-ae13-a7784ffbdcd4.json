@@ -1,0 +1,52 @@
+[
+  {
+    "role": "user",
+    "content": "what info do you have about and udemy courses I have taken  .. dates ? completion? instructor? ",
+    "timestamp": "2026-07-19T11:14:33.826634"
+  },
+  {
+    "role": "assistant",
+    "content": "I currently don't have specific details about the Udemy courses you've taken, such as individual titles, dates, completion status, or instructors. However, I can tell you that you have participated in various courses related to AI, including Claude Code, Agentic AI, LLM Engineer, and Agentic AI in Production, as part of your continuous learning. \n\nIf you provide me with any specifics, I can help summarize or discuss the particular courses you've undertaken.",
+    "timestamp": "2026-07-19T11:14:33.826650"
+  },
+  {
+    "role": "user",
+    "content": "do you have details of any udemy certificates",
+    "timestamp": "2026-07-19T12:13:53.269760"
+  },
+  {
+    "role": "assistant",
+    "content": "Yes, I have details of several Udemy certificates you've completed. Here\u2019s a summary:\n\n1. **AI Coder: Complete Claude Code & Coding Agents**\n   - Certificate No: UC-7ce2db0e-bade-434\n   - Completion Date: June 29, 2026\n   - Length: 16.5 total hours\n   - Instructors: Ed Donner, Ligency\n\n2. **Intro to AI Agents and Agentic AI**\n   - Certificate No: UC-ff7a1d61-aab4-460c-892a-7cfi2fdc4c19\n   - Completion Date: February 2, 2026\n   - Length: 2 total hours\n   - Instructors: 365 Careers\n\n3. **AI Engineer Agentic Track: The Complete Agent & MCP Course**\n   - Certificate No: UC-d070a6e2-86e8-4ea0-b038-3b52d988e5e5\n   - Completion Date: February 24, 2026\n   - Length: 17 total hours\n   - Instructors: Ed Donner, Ligency\n\n4. **Generative AI Unleashed: Exploring Possibilities and Future**\n   - Certificate No: UC-7aab2e70-d87f-40f0-b445-87599e2013e3\n   - Completion Date: February 19, 2026\n   - Length: 1.5 total hours\n   - Instructors: Learnsector LLP\n\n5. **Practical Vibe Coding: AI-Powered Software Development**\n   - Certificate No: UC-2e660f10-3d38-4948-ba16-bb71ed49b330\n   - Completion Date: February 10, 2026\n   - Length: 2.5 total hours\n   - Instructors: Gustavo Escobar Henriquez, Digital Life Academy\n  \n6. **AI Engineer Core Track: LLM Engineering, RAG, QLORA, Agents**\n   - Certificate No: UC-137a5b6d-9ffd-4770-ad28-31826a85e6e8\n   - Completion Date: March 16, 2026\n   - Length: 33.5 total hours\n   - Instructors: Ligency, Ed Donner\n\n7. **AI Engineer Production Track: Deploy LLMs & Agents at Scale**\n   - Certificate No: UC-ab12be58-a10f-4052-9519-521ec8bb4103\n   - Completion Date: June 30, 2026\n   - Length: 18.5 total hours\n   - Instructors: Ligency, Ed Donner\n\n8. **Copilot Essentials in Microsoft Office**\n   - Certificate No: UC-ff7a1d61-aab4-460c-892a-7cfi2fdc4c19\n   - Completion Date: February 19, 2026\n   - Length: 1 total hour\n   - Instructors: Simon Sez IT\n\n9. **Complete Data Privacy (GDPR) Fundamentals**\n   - Certificate No: UC-f8d75e3d-8c3d-49c8-b89c-cc8b0d59bbf7\n   - Completion Date: January 26, 2026\n   - Length: 1 total hour\n   - Instructors: Moustafa Ahmed Abd El-Azim, Blink Data\n\n10. **VMware HCX Fundamentals 2022**\n    - Certificate No: UC-91lectf49-680b-413c-aectf-bb5f50f33575\n    - Completion Date: December 20, 2024\n    - Length: 6 total hours\n    - Instructor: Mike Ghazaleh\n\nThis reflects your dedication to continued education, especially in AI and software development! Let me know if you need more information on any specific certificate.",
+    "timestamp": "2026-07-19T12:13:53.269775"
+  },
+  {
+    "role": "user",
+    "content": "can you list any udemy certificate details ",
+    "timestamp": "2026-07-19T12:36:52.366341"
+  },
+  {
+    "role": "assistant",
+    "content": "Certainly! Here\u2019s a list of your Udemy certificate details:\n\n1. **AI Coder: Complete Claude Code & Coding Agents**\n   - **Certificate No:** UC-7ce2db0e-bade-434b-b8a2-55ea4b7cd5cb\n   - **Completion Date:** June 29, 2026\n   - **Length:** 16.5 total hours\n   - **Instructors:** Ed Donner, Ligency\n\n2. **Intro to AI Agents and Agentic AI**\n   - **Certificate No:** UC-ff7a1d61-aab4-460c-892a-7cfi2fdc4c19\n   - **Completion Date:** February 2, 2026\n   - **Length:** 2 total hours\n   - **Instructor:** 365 Careers\n\n3. **AI Engineer Agentic Track: The Complete Agent & MCP Course**\n   - **Certificate No:** UC-d070a6e2-86e8-4ea0-b038-3b52d988e5e5\n   - **Completion Date:** February 24, 2026\n   - **Length:** 17 total hours\n   - **Instructors:** Ed Donner, Ligency\n\n4. **Generative AI Unleashed: Exploring Possibilities and Future**\n   - **Certificate No:** UC-7aab2e70-d87f-40f0-b445-87599e2013e3\n   - **Completion Date:** February 19, 2026\n   - **Length:** 1 total hour\n   - **Instructor:** Learnsector LLP\n\n5. **Practical Vibe Coding: AI-Powered Software Development**\n   - **Certificate No:** UC-2e660f10-3d38-4948-ba16-bb71ed49b330\n   - **Completion Date:** February 10, 2026\n   - **Length:** 2.5 total hours\n   - **Instructors:** Gustavo Escobar Henriquez, Digital Life Academy\n  \n6. **AI Engineer Core Track: LLM Engineering, RAG, QLORA, Agents**\n   - **Certificate No:** UC-137a5b6d-9ffd-4770-ad28-3f826a85e6e8\n   - **Completion Date:** March 16, 2026\n   - **Length:** 33.5 total hours\n   - **Instructors:** Ligency, Ed Donner\n\n7. **AI Engineer Production Track: Deploy LLMs & Agents at Scale**\n   - **Certificate No:** UC-ab12be58-a10f-4052-9519-521ec8bb4103\n   - **Completion Date:** June 30, 2026\n   - **Length:** 18.5 total hours\n   - **Instructors:** Ligency, Ed Donner\n\n8. **Copilot Essentials in Microsoft Office**\n   - **Certificate No:** UC-ff7a1d61-aab4-460c-892a-7cfi2fdc4c19\n   - **Completion Date:** February 19, 2026\n   - **Length:** 1 total hour\n   - **Instructor:** Simon Sez IT\n\n9. **Complete Data Privacy (GDPR) Fundamentals**\n   - **Certificate No:** UC-f8d75e3d-8c3d-49c8-b89c-cc8b0d59bbf7\n   - **Completion Date:** January 26, 2026\n   - **Length:** 1 total hour\n   - **Instructors:** Moustafa Ahmed Abd El-Azim, Blink Data\n\n10. **VMware HCX Fundamentals 2022**\n    - **Certificate No:** UC-91lectf49-680b-413c-aectf-bb5f50f33575\n    - **Completion Date:** December 20, 2024\n    - **Length:** 6 total hours\n    - **Instructor:** Mike Ghazaleh\n\nThis highlights your commitment to continuous learning and growth in your professional capabilities. If you need specific details or have any questions about these certificates, feel free to ask!",
+    "timestamp": "2026-07-19T12:36:52.366360"
+  },
+  {
+    "role": "user",
+    "content": "and is there a certifact for prompt engineering",
+    "timestamp": "2026-07-19T12:40:38.128623"
+  },
+  {
+    "role": "assistant",
+    "content": "Yes, there is a certificate for Prompt Engineering. Here are the details:\n\n- **Certificate Title:** Prompt Engineering for Work\n- **Certificate No:** UC-27caa5f9-025b-424f-9208-38806c963451\n- **Completion Date:** February 19, 2026\n- **Length:** 1 total hour\n- **Instructor:** Steve Ballinger, MBA\n\nThis certification reflects your skills and knowledge in effectively utilizing prompt engineering techniques. If you have any more questions or need further information, just let me know!",
+    "timestamp": "2026-07-19T12:40:38.128638"
+  },
+  {
+    "role": "user",
+    "content": "and is this certificate with udemy",
+    "timestamp": "2026-07-19T12:42:06.705844"
+  },
+  {
+    "role": "assistant",
+    "content": "Yes, the **Prompt Engineering for Work** certificate is from Udemy. If you need more details about this course or any other information related to your Udemy certifications, feel free to ask!",
+    "timestamp": "2026-07-19T12:42:06.705859"
+  }
+]

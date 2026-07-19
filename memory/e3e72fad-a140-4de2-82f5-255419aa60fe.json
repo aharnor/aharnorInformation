@@ -1,0 +1,12 @@
+[
+  {
+    "role": "user",
+    "content": "can you list the names of udemy courses ",
+    "timestamp": "2026-07-19T13:26:45.245681"
+  },
+  {
+    "role": "assistant",
+    "content": "Sure! Here are the names of the Udemy courses that I have completed:\n\n1. **Intro to AI Agents and Agentic AI** - Completed on February 2, 2026\n2. **AI Engineer Core Track: LLM Engineering, RAG, QLORA, Agents** - Completed on March 16, 2026\n3. **Claude Code - The Practical Guide** - Completed on July 15, 2026\n4. **Copilot Essentials in Microsoft Office** - Completed on February 19, 2026\n5. **Generative AI Unleashed: Exploring Possibilities and Future** - Completed on February 19, 2026\n6. **Complete Data Privacy (GDPR) Fundamentals** - Completed on January 26, 2026\n7. **Practical Vibe Coding: AI-Powered Software Development** - Completed on February 10, 2026\n8. **Prompt Engineering for Work** - Completed on February 19, 2026\n9. **AI Engineer Production Track: Deploy LLMs & Agents at Scale** - Completed on June 30, 2026\n10. **AI Coder: Complete Claude Code & Coding Agents Course** - Completed on June 29, 2026\n11. **VMware HCX Fundamentals 2022** - Completed on December 20, 2024\n12. **AI Engineer Agentic Track: The Complete Agent & MCP Course** - Completed on February 24, 2026\n\nIf you have any questions about a specific course or topic, feel free to ask!",
+    "timestamp": "2026-07-19T13:26:45.245702"
+  }
+]

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Digital Twin</title>
+    <!-- Simple Tailwind CSS for clean styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col items-center justify-center p-4">
+
+    <div class="w-full max-w-xl bg-zinc-900 border border-zinc-800 rounded-xl p-6 shadow-xl space-y-6">
+        
+        <!-- Header & Status -->
+        <div class="flex items-center justify-between border-b border-zinc-800 pb-4">
+            <div>
+                <h1 class="text-xl font-bold">Andrew's AI Twin</h1>
+                <p class="text-xs text-zinc-400">Trained on CV & Certificates</p>
+            </div>
+            <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-950 border border-zinc-800 text-xs text-emerald-400">
+                <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Connected
+            </div>
+        </div>
+
+        <!-- Simple Chat Output Area -->
+        <div class="h-64 bg-zinc-950 border border-zinc-800 rounded-lg p-4 overflow-y-auto text-sm space-y-3" id="chat-box">
+            <div class="text-zinc-400 italic">Ask me anything about Andrew's qualifications...</div>
+        </div>
+
+        <!-- Input Form -->
+        <div class="flex gap-2">
+            <input type="text" id="user-input" placeholder="Ask a question..." 
+                   class="flex-1 bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-zinc-700">
+            <button onclick="sendMessage()" 
+                    class="bg-zinc-100 text-zinc-950 font-semibold px-4 py-2 rounded-lg text-sm hover:bg-zinc-200 transition-colors">
+                Send
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Simple Script to talk to your backend on port 8000 -->
+    <script>
+        async function sendMessage() {
+            const input = document.getElementById('user-input');
+            const chatBox = document.getElementById('chat-box');
+            const question = input.value.trim();
+            if (!question) return;
+
+            // Append user question to chat
+            chatBox.innerHTML += `<div class="text-right"><span class="bg-zinc-800 px-3 py-1.5 rounded-lg inline-block">${question}</span></div>`;
+            input.value = '';
+
+            try {
+                // Call your local backend
+                const response = await fetch('http://localhost:8000/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: question })
+                });
+                const data = await response.json();
+                
+                // Append backend response
+                chatBox.innerHTML += `<div class="text-left"><span class="bg-zinc-900 border border-zinc-800 px-3 py-1.5 rounded-lg inline-block text-zinc-300">${data.response}</span></div>`;
+            } catch (error) {
+                chatBox.innerHTML += `<div class="text-red-400 text-xs">Error connecting to backend server.</div>`;
+            }
+            
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
+
+</body>
+</html>
