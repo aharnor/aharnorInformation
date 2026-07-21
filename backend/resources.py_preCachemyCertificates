@@ -1,0 +1,78 @@
+import os
+import glob
+from pypdf import PdfReader  # or 'from PyPDF2 import PdfReader' depending on your library
+from pdf2image import convert_from_path
+import pytesseract
+import json
+
+print("!!! RESOURCES.PY IS BEING READ !!!")
+
+# Read CV PDF
+try:
+    reader = PdfReader("./data/myCV.pdf")
+    myCV = ""
+    for page in reader.pages:
+        text = page.extract_text()
+        if text:
+            myCV += text
+except FileNotFoundError:
+    myCV = "myCV.pdf not available"
+
+# Read LinkedIn PDF
+try:
+    reader = PdfReader("data/linkedin.pdf")
+    linkedin = ""
+    for page in reader.pages:
+        text = page.extract_text()
+        if text:
+            linkedin += text
+except FileNotFoundError:
+    linkedin = "LinkedIn profile not available"
+
+# Read All certificate files
+# Robust path resolution
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+cert_pattern = os.path.join(DATA_DIR, "certificate_*.pdf")
+cert_files = glob.glob(cert_pattern)
+myCertificates = ""
+
+if cert_files:
+    print(f"Found {len(cert_files)} certificate files to process.")
+    for file_path in cert_files:
+        try:
+            reader = PdfReader(file_path)
+            text = ""
+            for page in reader.pages:
+                extracted = page.extract_text()
+                if extracted:
+                    text += extracted + "\n"
+            
+            if not text.strip():
+                print(f"No digital text found in {os.path.basename(file_path)}. Running OCR...")
+                images = convert_from_path(file_path)
+                for img in images:
+                    text += pytesseract.image_to_string(img) + "\n"
+            
+            if text.strip():
+                myCertificates += text + "\n"
+                print(f"Successfully processed: {os.path.basename(file_path)} (Length: {len(text)} chars)")
+            else:
+                print(f"Warning: Could not extract any text from {os.path.basename(file_path)}")
+                
+        except Exception as e:
+            print(f"Error reading {file_path}: {e}")
+else:
+    myCertificates = "Certificate files not available"
+    print("No certificate files found in the data directory.")
+    logger.warning("No certificate files found in the data directory.")
+
+# Read other data files
+with open("./data/summary.txt", "r", encoding="utf-8") as f:
+    summary = f.read()
+
+with open("./data/style.txt", "r", encoding="utf-8") as f:
+    style = f.read()
+
+with open("./data/facts.json", "r", encoding="utf-8") as f:
+    facts = json.load(f)

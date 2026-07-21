@@ -35,7 +35,6 @@ Here is the LinkedIn profile of {name}:
 {linkedin}
 
 Here are some course certificates for {name}:
-IMPORTANT please keep a count of the number of certificates recorded the titles, dates, completions, and instructor name
 {myCertificates}
 
 Here are some notes from {name} about their communications style:

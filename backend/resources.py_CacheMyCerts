@@ -38,46 +38,49 @@ cert_pattern = os.path.join(DATA_DIR, "certificate_*.pdf")
 cert_files = glob.glob(cert_pattern)
 myCertificates = ""
 
-# (For now) output the contest of myCertificates to a file 
+# For now output the contest of myCertificates to a file 
 myCertificatesPath = Path(__file__).parent / "data" / "myCertificates.txt"
 
+#AJH if cert_files:
+#AJH     print(f"Found {len(cert_files)} certificate files to process.")
+#AJH     for file_path in cert_files:
+#AJH         try:
+#AJH             reader = PdfReader(file_path)
+#AJH             text = ""
+#AJH             for page in reader.pages:
+#AJH                 extracted = page.extract_text()
+#AJH                 if extracted:
+#AJH                     text += extracted + "\n"
+#AJH             
+#AJH             if not text.strip():
+#AJH                 print(f"No digital text found in {os.path.basename(file_path)}. Running OCR...")
+#AJH                 images = convert_from_path(file_path)
+#AJH                 for img in images:
+#AJH                     text += pytesseract.image_to_string(img) + "\n"
+#AJH             
+#AJH             if text.strip():
+#AJH                 myCertificates += text + "\n"
+#AJH                 print(f"Successfully processed: {os.path.basename(file_path)} (Length: {len(text)} chars)")
+#AJH             else:
+#AJH                 print(f"Warning: Could not extract any text from {os.path.basename(file_path)}")
+#AJH                 
+#AJH         except Exception as e:
+#AJH             print(f"Error reading {file_path}: {e}")
+#AJH else:
+#AJH     myCertificates = "Certificate files not available"
+#AJH     print("No certificate files found in the data directory.")
+#AJH     logger.warning("No certificate files found in the data directory.")
+#AJH 
+#AJH # For now output the contest of myCertificates to a file 
+#AJH myCertificatesPath = Path(__file__).parent / "data" / "myCertificates.txt"
+
 if not myCertificatesPath.exists():
-    if cert_files:
-        print(f"Found {len(cert_files)} certificate files to process.")
-        for file_path in cert_files:
-            try:
-                reader = PdfReader(file_path)
-                text = ""
-                for page in reader.pages:
-                    extracted = page.extract_text()
-                    if extracted:
-                        text += extracted + "\n"
-                
-                if not text.strip():
-                    print(f"No digital text found in {os.path.basename(file_path)}. Running OCR...")
-                    images = convert_from_path(file_path)
-                    for img in images:
-                        text += pytesseract.image_to_string(img) + "\n"
-                
-                if text.strip():
-                    myCertificates += text + "\n"
-                    print(f"Successfully processed: {os.path.basename(file_path)} (Length: {len(text)} chars)")
-                else:
-                    print(f"Warning: Could not extract any text from {os.path.basename(file_path)}")
-                    
-            except Exception as e:
-                print(f"Error reading {file_path}: {e}")
-    else:
-        myCertificates = "Certificate files not available"
-        print("No certificate files found in the data directory.")
-        logger.warning("No certificate files found in the data directory.")
-    
     myCertificatesPath.write_text(myCertificates, encoding="utf-8")
-#  ACTION - remove the blank spaces and lines 
     print (f"Writing .... myCertificates to {myCertificatesPath}")
 else:
     myCertificates = myCertificatesPath.read_text(encoding="utf-8")
     print (f"Reading .... myCertificates from {myCertificatesPath}")
+    print (f"Data .... myCertificates from {myCertificates}")
 
 # Read other data files
 with open("./data/summary.txt", "r", encoding="utf-8") as f:
